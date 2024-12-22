@@ -1,0 +1,228 @@
+body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle, #000000, #0a0a0a, #1a1a1a);
+      color: #fff;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+  }
+
+  .container {
+      text-align: center;
+      animation: flicker 3s infinite;
+  }
+
+  h1 {
+      font-size: 4rem;
+      letter-spacing: 0.2em;
+      text-shadow: 0 0 10px #ff0000, 0 0 30px #ff0000, 0 0 50px #ff0000;
+  }
+
+  .glitch-effect {
+      position: relative;
+      display: inline-block;
+  }
+
+  .glitch-effect::before, .glitch-effect::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0.8;
+      clip: rect(0, 900px, 0, 0);
+      animation: glitch 2s infinite;
+  }
+
+  .glitch-effect::before {
+      color: #f00;
+      z-index: 1;
+  }
+
+  .glitch-effect::after {
+      color: #0f0;
+      z-index: 2;
+  }
+
+  @keyframes glitch {
+      0% {
+          clip: rect(10px, 9999px, 30px, 0);
+          transform: translate(3px, 0);
+      }
+      20% {
+          clip: rect(30px, 9999px, 60px, 0);
+          transform: translate(-3px, -3px);
+      }
+      40% {
+          clip: rect(15px, 9999px, 40px, 0);
+          transform: translate(0, 3px);
+      }
+      60% {
+          clip: rect(5px, 9999px, 25px, 0);
+          transform: translate(2px, -2px);
+      }
+      80% {
+          clip: rect(20px, 9999px, 50px, 0);
+          transform: translate(-1px, 1px);
+      }
+      100% {
+          clip: rect(10px, 9999px, 30px, 0);
+          transform: translate(0, 0);
+      }
+  }
+
+  @keyframes flicker {
+      0%, 18%, 22%, 25%, 53%, 57%, 100% {
+          opacity: 1;
+      }
+      20%, 24%, 55% {
+          opacity: 0.4;
+      }
+  }
+
+  .footer {
+      margin-top: 50px;
+      font-size: 1rem;
+      opacity: 0.6;
+      animation: flicker 5s infinite;
+  }
+
+  .background-text {
+      position: absolute;
+      font-size: 6rem;
+      color: rgba(255, 0, 0, 0.1);
+      text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+      transform: rotate(-15deg);
+      top: 20%;
+      left: 5%;
+  }
+
+  .hidden-message {
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.6);
+      opacity: 0;
+      animation: reveal 10s infinite;
+  }
+
+  .pulsating-circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 0, 0, 0.1);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: pulse 3s infinite;
+  }
+
+  @keyframes pulse {
+      0% {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 0.4;
+      }
+      50% {
+          transform: translate(-50%, -50%) scale(1.4);
+          opacity: 0.2;
+      }
+      100% {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 0.4;
+      }
+  }
+
+  .warning-text {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.5rem;
+      color: rgba(255, 0, 0, 0.8);
+      text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+      animation: warning-flicker 2s infinite;
+  }
+
+  @keyframes warning-flicker {
+      0%, 50%, 100% {
+          opacity: 1;
+      }
+      25%, 75% {
+          opacity: 0.2;
+      }
+  }
+
+  .fading-stars {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 1));
+      overflow: hidden;
+  }
+
+  .fading-stars::before {
+      content: '';
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      animation: twinkle 4s infinite;
+  }
+
+  @keyframes twinkle {
+      0%, 100% {
+          opacity: 0;
+      }
+      50% {
+          opacity: 1;
+      }
+  }
+
+  .shattered-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      color: rgba(255, 0, 0, 0.5);
+      animation: shattered 3s infinite;
+  }
+
+  @keyframes shattered {
+      0%, 100% {
+          transform: translate(-50%, -50%) scale(1) rotate(0deg);
+          opacity: 1;
+      }
+      50% {
+          transform: translate(-50%, -50%) scale(1.2) rotate(10deg);
+          opacity: 0.2;
+      }
+  }
+
+  .hidden-runes {
+      position: absolute;
+      top: 80%;
+      left: 10%;
+      font-size: 1rem;
+      color: rgba(0, 255, 255, 0.3);
+      writing-mode: vertical-rl;
+      text-transform: uppercase;
+      animation: fadeInOut 8s infinite;
+  }
+
+  @keyframes fadeInOut {
+      0%, 100% {
+          opacity: 0;
+      }
+      50% {
+          opacity: 1;
+      }
+  }
